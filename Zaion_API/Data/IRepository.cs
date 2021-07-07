@@ -16,6 +16,34 @@ namespace Zaion_API.Data
         Task<Jogador[]> GetAllJogadoresAsync();
         Task<Jogador> GetJogadorByKeyAsync(int key);
         Task<Jogador[]> GetJogadorByNameAsync(string key);
+
+        // Get para Personagens
+        Task<Personagem[]> GetAllPersonagensAsync();
+        Task<Personagem> GetPersonagemByKeyAsync(int key);
+        Task<Personagem[]> GetPersonagemByNameAsync(string key);
+
+        // Get para Itens
+        Task<Item[]> GetAllItensAsync();
+        Task<Item> GetItemByKeyAsync(int key);
+        Task<Item[]> GetItemByNameAsync(string key);
+
+        // Get para Armas
+        Task<Arma[]> GetAllArmasAsync();
+        Task<Arma> GetArmaByKeyAsync(int key);
+        Task<Arma[]> GetArmaByNameAsync(string key);
+
+        // Get para Inventarios
+        Task<Inventario[]> GetAllInventariosAsync();
+        Task<Inventario> GetInventarioByKeyAsync(int key);
+        Task<Inventario[]> GetInventarioByIdPersonagemAsync(int key);
+        Task<Inventario[]> GetInventarioByIdItemAsync(int key);
+
+        // Get para Armamentos
+        Task<Armamento[]> GetAllArmamentosAsync();
+        Task<Armamento> GetArmamentoByKeyAsync(int key);
+        Task<Armamento[]> GetArmamentoByIdPersonagemAsync(int key);
+        Task<Armamento[]> GetArmamentoByIdArmaAsync(int key);
+
         /*
                 // GET para Aluno
                 Task<Aluno[]> GetAllAlunosAsync();

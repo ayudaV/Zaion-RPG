@@ -13,11 +13,11 @@ namespace Zaion_API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class JogadorController : Controller
+    public class ArmamentoController : Controller
     {
 
         public readonly IRepository repository;
-        public JogadorController(IRepository rep)
+        public ArmamentoController(IRepository rep)
         {
             this.repository = rep;
         }
@@ -25,7 +25,7 @@ namespace Zaion_API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var result = await repository.GetAllJogadoresAsync();
+            var result = await repository.GetAllArmamentosAsync();
             return Ok(result);
         }
 
@@ -34,7 +34,7 @@ namespace Zaion_API.Controllers
         {
             try
             {
-                var result = await repository.GetJogadorByKeyAsync(key);
+                var result = await repository.GetArmamentoByKeyAsync(key);
                 if (result == null)
                     return this.StatusCode(StatusCodes.Status404NotFound);
 
@@ -46,12 +46,12 @@ namespace Zaion_API.Controllers
             }
         }
 
-        [HttpGet("nome/{Nome}")]
-        public async Task<IActionResult> GetByName(string nome)
+        [HttpGet("personagem/{Key}")]
+        public async Task<IActionResult> GetByIdPersonagem(int key)
         {
             try
             {
-                var result = await repository.GetJogadorByNameAsync(nome);
+                var result = await repository.GetArmamentoByIdPersonagemAsync(key);
                 if (result == null)
                     return this.StatusCode(StatusCodes.Status404NotFound);
 
@@ -62,9 +62,24 @@ namespace Zaion_API.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Falha no acesso ao banco de dados.");
             }
         }
+        [HttpGet("arma/{Key}")]
+        public async Task<IActionResult> GetByIdArma(int key)
+        {
+            try
+            {
+                var result = await repository.GetArmamentoByIdArmaAsync(key);
+                if (result == null)
+                    return this.StatusCode(StatusCodes.Status404NotFound);
 
+                return Ok(result);
+            }
+            catch
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Falha no acesso ao banco de dados.");
+            }
+        }
         [HttpPost]
-        public async Task<ActionResult> post(Jogador model)
+        public async Task<ActionResult> post(Armamento model)
         {
             try
             {
@@ -72,7 +87,7 @@ namespace Zaion_API.Controllers
                 if (await repository.SaveChangesAsync())
                 {
                     //return Ok();
-                    return Created($"/jogador/{model.IdJogador}", model);
+                    return Created($"/item/{model.IdArmamento}", model);
                 }
             }
             catch
@@ -83,22 +98,22 @@ namespace Zaion_API.Controllers
             return BadRequest();
         }
 
-        [HttpPut("{IdJogador}")]
-        public async Task<IActionResult> Put(int key, Jogador dadosJogadorAlt)
+        [HttpPut("{IdArmamento}")]
+        public async Task<IActionResult> Put(int key, Armamento dadosArmamentoAlt)
         {
             try
             {
-                //verifica se existe jogador a ser alterado
-                var result = await repository.GetJogadorByKeyAsync(key);
+                //verifica se existe item a ser alterado
+                var result = await repository.GetArmamentoByKeyAsync(key);
 
                 if (result == null)
                 {
                     return BadRequest();
                 }
-                result = dadosJogadorAlt;
+                result = dadosArmamentoAlt;
 
                 await repository.SaveChangesAsync();
-                return Created($"/jogador/{key}", dadosJogadorAlt);
+                return Created($"/item/{key}", dadosArmamentoAlt);
             }
             catch
             {
@@ -106,19 +121,19 @@ namespace Zaion_API.Controllers
             }
         }
 
-        [HttpDelete("remover/{IdJogador}")]
+        [HttpDelete("remover/{IdArmamento}")]
         public async Task<ActionResult> delete(int key)
         {
             try
             {
-                //verifica se existe jogador a ser excluído
-                var jogador = await repository.GetJogadorByKeyAsync(key);
-                if (jogador == null)
+                //verifica se existe item a ser excluído
+                var item = await repository.GetArmamentoByKeyAsync(key);
+                if (item == null)
                 {
                     //método do EF
                     return NotFound();
                 }
-                repository.Delete(jogador);
+                repository.Delete(item);
                 await repository.SaveChangesAsync();
                 return NoContent();
             }

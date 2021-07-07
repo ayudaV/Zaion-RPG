@@ -13,11 +13,11 @@ namespace Zaion_API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class JogadorController : Controller
+    public class ArmaController : Controller
     {
 
         public readonly IRepository repository;
-        public JogadorController(IRepository rep)
+        public ArmaController(IRepository rep)
         {
             this.repository = rep;
         }
@@ -25,7 +25,7 @@ namespace Zaion_API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var result = await repository.GetAllJogadoresAsync();
+            var result = await repository.GetAllArmasAsync();
             return Ok(result);
         }
 
@@ -34,7 +34,7 @@ namespace Zaion_API.Controllers
         {
             try
             {
-                var result = await repository.GetJogadorByKeyAsync(key);
+                var result = await repository.GetArmaByKeyAsync(key);
                 if (result == null)
                     return this.StatusCode(StatusCodes.Status404NotFound);
 
@@ -51,7 +51,7 @@ namespace Zaion_API.Controllers
         {
             try
             {
-                var result = await repository.GetJogadorByNameAsync(nome);
+                var result = await repository.GetArmaByNameAsync(nome);
                 if (result == null)
                     return this.StatusCode(StatusCodes.Status404NotFound);
 
@@ -64,7 +64,7 @@ namespace Zaion_API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> post(Jogador model)
+        public async Task<ActionResult> post(Arma model)
         {
             try
             {
@@ -72,7 +72,7 @@ namespace Zaion_API.Controllers
                 if (await repository.SaveChangesAsync())
                 {
                     //return Ok();
-                    return Created($"/jogador/{model.IdJogador}", model);
+                    return Created($"/arma/{model.IdArma}", model);
                 }
             }
             catch
@@ -83,22 +83,22 @@ namespace Zaion_API.Controllers
             return BadRequest();
         }
 
-        [HttpPut("{IdJogador}")]
-        public async Task<IActionResult> Put(int key, Jogador dadosJogadorAlt)
+        [HttpPut("{IdArma}")]
+        public async Task<IActionResult> Put(int key, Arma dadosArmaAlt)
         {
             try
             {
-                //verifica se existe jogador a ser alterado
-                var result = await repository.GetJogadorByKeyAsync(key);
+                //verifica se existe arma a ser alterado
+                var result = await repository.GetArmaByKeyAsync(key);
 
                 if (result == null)
                 {
                     return BadRequest();
                 }
-                result = dadosJogadorAlt;
+                result = dadosArmaAlt;
 
                 await repository.SaveChangesAsync();
-                return Created($"/jogador/{key}", dadosJogadorAlt);
+                return Created($"/arma/{key}", dadosArmaAlt);
             }
             catch
             {
@@ -106,19 +106,19 @@ namespace Zaion_API.Controllers
             }
         }
 
-        [HttpDelete("remover/{IdJogador}")]
+        [HttpDelete("remover/{IdArma}")]
         public async Task<ActionResult> delete(int key)
         {
             try
             {
-                //verifica se existe jogador a ser excluído
-                var jogador = await repository.GetJogadorByKeyAsync(key);
-                if (jogador == null)
+                //verifica se existe arma a ser excluído
+                var arma = await repository.GetArmaByKeyAsync(key);
+                if (arma == null)
                 {
                     //método do EF
                     return NotFound();
                 }
-                repository.Delete(jogador);
+                repository.Delete(arma);
                 await repository.SaveChangesAsync();
                 return NoContent();
             }

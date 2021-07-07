@@ -13,11 +13,11 @@ namespace Zaion_API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class JogadorController : Controller
+    public class PersonagemController : Controller
     {
 
         public readonly IRepository repository;
-        public JogadorController(IRepository rep)
+        public PersonagemController(IRepository rep)
         {
             this.repository = rep;
         }
@@ -25,7 +25,7 @@ namespace Zaion_API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var result = await repository.GetAllJogadoresAsync();
+            var result = await repository.GetAllPersonagensAsync();
             return Ok(result);
         }
 
@@ -34,7 +34,7 @@ namespace Zaion_API.Controllers
         {
             try
             {
-                var result = await repository.GetJogadorByKeyAsync(key);
+                var result = await repository.GetPersonagemByKeyAsync(key);
                 if (result == null)
                     return this.StatusCode(StatusCodes.Status404NotFound);
 
@@ -51,7 +51,7 @@ namespace Zaion_API.Controllers
         {
             try
             {
-                var result = await repository.GetJogadorByNameAsync(nome);
+                var result = await repository.GetPersonagemByNameAsync(nome);
                 if (result == null)
                     return this.StatusCode(StatusCodes.Status404NotFound);
 
@@ -64,7 +64,7 @@ namespace Zaion_API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> post(Jogador model)
+        public async Task<ActionResult> post(Personagem model)
         {
             try
             {
@@ -72,7 +72,7 @@ namespace Zaion_API.Controllers
                 if (await repository.SaveChangesAsync())
                 {
                     //return Ok();
-                    return Created($"/jogador/{model.IdJogador}", model);
+                    return Created($"/personagem/{model.IdPersonagem}", model);
                 }
             }
             catch
@@ -83,22 +83,22 @@ namespace Zaion_API.Controllers
             return BadRequest();
         }
 
-        [HttpPut("{IdJogador}")]
-        public async Task<IActionResult> Put(int key, Jogador dadosJogadorAlt)
+        [HttpPut("{IdPersonagem}")]
+        public async Task<IActionResult> Put(int key, Personagem dadosPersonagemAlt)
         {
             try
             {
-                //verifica se existe jogador a ser alterado
-                var result = await repository.GetJogadorByKeyAsync(key);
+                //verifica se existe personagem a ser alterado
+                var result = await repository.GetPersonagemByKeyAsync(key);
 
                 if (result == null)
                 {
                     return BadRequest();
                 }
-                result = dadosJogadorAlt;
+                result = dadosPersonagemAlt;
 
                 await repository.SaveChangesAsync();
-                return Created($"/jogador/{key}", dadosJogadorAlt);
+                return Created($"/personagem/{key}", dadosPersonagemAlt);
             }
             catch
             {
@@ -106,19 +106,19 @@ namespace Zaion_API.Controllers
             }
         }
 
-        [HttpDelete("remover/{IdJogador}")]
+        [HttpDelete("remover/{IdPersonagem}")]
         public async Task<ActionResult> delete(int key)
         {
             try
             {
-                //verifica se existe jogador a ser excluído
-                var jogador = await repository.GetJogadorByKeyAsync(key);
-                if (jogador == null)
+                //verifica se existe personagem a ser excluído
+                var personagem = await repository.GetPersonagemByKeyAsync(key);
+                if (personagem == null)
                 {
                     //método do EF
                     return NotFound();
                 }
-                repository.Delete(jogador);
+                repository.Delete(personagem);
                 await repository.SaveChangesAsync();
                 return NoContent();
             }

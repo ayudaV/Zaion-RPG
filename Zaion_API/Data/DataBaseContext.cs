@@ -12,6 +12,7 @@ namespace Zaion_API.Data
         public DbSet<Item> Item { get; set; }
         public DbSet<Arma> Arma { get; set; }
         public DbSet<Inventario> Inventario { get; set; }
+        public DbSet<Armamento> Armamento { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -33,7 +33,6 @@ namespace Zaion_API.Data
         }
 
         //Jogador
-
         public async Task<Jogador[]> GetAllJogadoresAsync()
         {
             IQueryable<Jogador> consultaJogadores = this.context.Jogador;
@@ -50,11 +49,124 @@ namespace Zaion_API.Data
         {
             IQueryable<Jogador> consultaJogadores = this.context.Jogador;
             consultaJogadores = consultaJogadores.Where(a => a.NomeJogador.Contains(nome));
-            consultaJogadores = consultaJogadores.OrderBy(a => a.IdJogador);
+            consultaJogadores = consultaJogadores.OrderBy(a => a.Username);
             return await consultaJogadores.ToArrayAsync();
         }
 
+        //Personagem
+        public async Task<Personagem[]> GetAllPersonagensAsync()
+        {
+            IQueryable<Personagem> consultaPersonagens = this.context.Personagem;
+            consultaPersonagens = consultaPersonagens.OrderBy(a => a.IdPersonagem);
+            return await consultaPersonagens.ToArrayAsync();
+        }
+        public async Task<Personagem> GetPersonagemByKeyAsync(int key)
+        {
+            IQueryable<Personagem> consultaPersonagens = this.context.Personagem;
+            consultaPersonagens = consultaPersonagens.Where(a => a.IdPersonagem == key);
+            return await consultaPersonagens.FirstOrDefaultAsync();
+        }
+        public async Task<Personagem[]> GetPersonagemByNameAsync(string nome)
+        {
+            IQueryable<Personagem> consultaPersonagens = this.context.Personagem;
+            consultaPersonagens = consultaPersonagens.Where(a => a.Nome.Contains(nome));
+            consultaPersonagens = consultaPersonagens.OrderBy(a => a.Nome);
+            return await consultaPersonagens.ToArrayAsync();
+        }
 
+        //Item
+        public async Task<Item[]> GetAllItensAsync()
+        {
+            IQueryable<Item> consultaItens = this.context.Item;
+            consultaItens = consultaItens.OrderBy(a => a.IdItem);
+            return await consultaItens.ToArrayAsync();
+        }
+        public async Task<Item> GetItemByKeyAsync(int key)
+        {
+            IQueryable<Item> consultaItens = this.context.Item;
+            consultaItens = consultaItens.Where(a => a.IdItem == key);
+            return await consultaItens.FirstOrDefaultAsync();
+        }
+        public async Task<Item[]> GetItemByNameAsync(string nome)
+        {
+            IQueryable<Item> consultaItens = this.context.Item;
+            consultaItens = consultaItens.Where(a => a.Nome.Contains(nome));
+            consultaItens = consultaItens.OrderBy(a => a.Nome);
+            return await consultaItens.ToArrayAsync();
+        }
+
+        //Arma
+        public async Task<Arma[]> GetAllArmasAsync()
+        {
+            IQueryable<Arma> consultaArmas = this.context.Arma;
+            consultaArmas = consultaArmas.OrderBy(a => a.IdArma);
+            return await consultaArmas.ToArrayAsync();
+        }
+        public async Task<Arma> GetArmaByKeyAsync(int key)
+        {
+            IQueryable<Arma> consultaArmas = this.context.Arma;
+            consultaArmas = consultaArmas.Where(a => a.IdArma == key);
+            return await consultaArmas.FirstOrDefaultAsync();
+        }
+        public async Task<Arma[]> GetArmaByNameAsync(string nome)
+        {
+            IQueryable<Arma> consultaArmas = this.context.Arma;
+            consultaArmas = consultaArmas.Where(a => a.Nome.Contains(nome));
+            consultaArmas = consultaArmas.OrderBy(a => a.Nome);
+            return await consultaArmas.ToArrayAsync();
+        }
+
+        //Inventario
+        public async Task<Inventario[]> GetAllInventariosAsync()
+        {
+            IQueryable<Inventario> consultaInventarios = this.context.Inventario;
+            consultaInventarios = consultaInventarios.OrderBy(a => a.IdInventario);
+            return await consultaInventarios.ToArrayAsync();
+        }
+        public async Task<Inventario> GetInventarioByKeyAsync(int key)
+        {
+            IQueryable<Inventario> consultaInventarios = this.context.Inventario;
+            consultaInventarios = consultaInventarios.Where(a => a.IdInventario == key);
+            return await consultaInventarios.FirstOrDefaultAsync();
+        }
+        public async Task<Inventario[]> GetInventarioByIdPersonagemAsync(int key)
+        {
+            IQueryable<Inventario> consultaInventarios = this.context.Inventario;
+            consultaInventarios = consultaInventarios.Where(a => a.IdPersonagem == key);
+            return await consultaInventarios.ToArrayAsync();
+        }
+        public async Task<Inventario[]> GetInventarioByIdItemAsync(int key)
+        {
+            IQueryable<Inventario> consultaInventarios = this.context.Inventario;
+            consultaInventarios = consultaInventarios.Where(a => a.IdItem == key);
+            return await consultaInventarios.ToArrayAsync();
+        }
+        
+        //Armamento
+        public async Task<Armamento[]> GetAllArmamentosAsync()
+        {
+            IQueryable<Armamento> consultaArmamentos = this.context.Armamento;
+            consultaArmamentos = consultaArmamentos.OrderBy(a => a.IdArmamento);
+            return await consultaArmamentos.ToArrayAsync();
+        }
+        public async Task<Armamento> GetArmamentoByKeyAsync(int key)
+        {
+            IQueryable<Armamento> consultaArmamentos = this.context.Armamento;
+            consultaArmamentos = consultaArmamentos.Where(a => a.IdArmamento == key);
+            return await consultaArmamentos.FirstOrDefaultAsync();
+        }
+        public async Task<Armamento[]> GetArmamentoByIdPersonagemAsync(int key)
+        {
+            IQueryable<Armamento> consultaArmamentos = this.context.Armamento;
+            consultaArmamentos = consultaArmamentos.Where(a => a.IdPersonagem == key);
+            return await consultaArmamentos.ToArrayAsync();
+        }
+        public async Task<Armamento[]> GetArmamentoByIdArmaAsync(int key)
+        {
+            IQueryable<Armamento> consultaArmamentos = this.context.Armamento;
+            consultaArmamentos = consultaArmamentos.Where(a => a.IdArma == key);
+            return await consultaArmamentos.ToArrayAsync();
+        }
         /*
 
         //Agendamento
