@@ -73,7 +73,21 @@ namespace Zaion_API.Data
             consultaPersonagens = consultaPersonagens.OrderBy(a => a.Nome);
             return await consultaPersonagens.ToArrayAsync();
         }
-
+        public async Task<Personagem[]> GetPersonagemByJogadorAsync(int key)
+        {
+            IQueryable<Personagem> consultaPersonagens = this.context.Personagem;
+            consultaPersonagens = consultaPersonagens.Where(a => a.IdJogador == key);
+            consultaPersonagens = consultaPersonagens.OrderBy(a => a.Nome);
+            return await consultaPersonagens.ToArrayAsync();
+        }
+        public async Task<PersonagemJogador[]> GetAllPersonagensJogadorAsync()
+        {
+            IQueryable<PersonagemJogador> consultaJogadores = from p in this.context.Personagem
+            join j in this.context.Jogador on p.IdJogador equals j.IdJogador into res
+            from rs in res.DefaultIfEmpty()
+            select new PersonagemJogador() { Personagem = p, Jogador = rs };
+            return await consultaJogadores.ToArrayAsync();
+        }
         //Item
         public async Task<Item[]> GetAllItensAsync()
         {
@@ -141,7 +155,36 @@ namespace Zaion_API.Data
             consultaInventarios = consultaInventarios.Where(a => a.IdItem == key);
             return await consultaInventarios.ToArrayAsync();
         }
-        
+        public async Task<InventarioItem[]> GetInventarioItemByKeyAsync(int key)
+        {
+            IQueryable<InventarioItem> consultaInventarios = from inv in this.context.Inventario
+                join item in this.context.Item on inv.IdItem equals item.IdItem into res
+                from rs in res.DefaultIfEmpty()
+                where
+                    inv.IdInventario == key
+                select new InventarioItem() { Inventario = inv, Item = rs };
+            return await consultaInventarios.ToArrayAsync();
+        }
+        public async Task<InventarioItem[]> GetInventarioItemByIdPersonagemAsync(int key)
+        {
+            IQueryable<InventarioItem> consultaInventarios = from inv in this.context.Inventario
+                join item in this.context.Item on inv.IdItem equals item.IdItem into res
+                from rs in res.DefaultIfEmpty()
+                where
+                    inv.IdPersonagem == key
+                select new InventarioItem() { Inventario = inv, Item = rs };
+            return await consultaInventarios.ToArrayAsync();
+        }
+        public async Task<InventarioPersonagem[]> GetInventarioPersonagemByIdItemAsync(int key)
+        {
+            IQueryable<InventarioPersonagem> consultaArmamentos = from inv in this.context.Inventario
+                join p in this.context.Personagem on inv.IdPersonagem equals p.IdJogador into res
+                from rs in res.DefaultIfEmpty()
+                where
+                    inv.IdItem == key
+                select new InventarioPersonagem() { Inventario = inv, Personagem = rs };
+            return await consultaArmamentos.ToArrayAsync();
+        }
         //Armamento
         public async Task<Armamento[]> GetAllArmamentosAsync()
         {
@@ -167,134 +210,35 @@ namespace Zaion_API.Data
             consultaArmamentos = consultaArmamentos.Where(a => a.IdArma == key);
             return await consultaArmamentos.ToArrayAsync();
         }
-        /*
-
-        //Agendamento
-        public async Task<Agendamento[]> GetAllAgendamentosAsync()
+        public async Task<ArmamentoArma[]> GetArmamentoArmaByKeyAsync(int key)
         {
-            IQueryable<Agendamento> consultaAgendamentos = this.context.Agendamento;
-            consultaAgendamentos = consultaAgendamentos.OrderBy(a => a.IdAgendamento);
-            return await consultaAgendamentos.ToArrayAsync();
+            IQueryable<ArmamentoArma> consultaArmamentos = from amt in this.context.Armamento
+                join arma in this.context.Arma on amt.IdArma equals arma.IdArma into res
+                from rs in res.DefaultIfEmpty()
+                where
+                    amt.IdArmamento == key
+                select new ArmamentoArma() { Armamento = amt, Arma = rs };
+            return await consultaArmamentos.ToArrayAsync();
         }
-        public async Task<Agendamento> GetAgendamentoByKeyAsync(int key)
+        public async Task<ArmamentoArma[]> GetArmamentoArmaByIdPersonagemAsync(int key)
         {
-            IQueryable<Agendamento> consultaAgendamentos = this.context.Agendamento;
-            consultaAgendamentos = consultaAgendamentos.Where(a => a.IdAgendamento == key);
-            return await consultaAgendamentos.FirstOrDefaultAsync();
+            IQueryable<ArmamentoArma> consultaArmamentos = from amt in this.context.Armamento
+                join arma in this.context.Arma on amt.IdArma equals arma.IdArma into res
+                from rs in res.DefaultIfEmpty()
+                where
+                    amt.IdPersonagem == key
+                select new ArmamentoArma() { Armamento = amt, Arma = rs };
+            return await consultaArmamentos.ToArrayAsync();
         }
-        public async Task<AgendaHorario[]> GetAgendamentoByEmailAsync(string email)
+        public async Task<ArmamentoPersonagem[]> GetArmamentoPersonagemByIdArmaAsync(int key)
         {
-            IQueryable<AgendaHorario> consultaAgendamentos = from a in this.context.Agendamento
-            join h in this.context.Horario on a.IdHorario equals h.IdHorario into loj
-            from rs in loj.DefaultIfEmpty()
-            where
-                a.Email == email
-            select new AgendaHorario() { Agendamento = a, Horario = rs };
-            return await consultaAgendamentos.ToArrayAsync();
+            IQueryable<ArmamentoPersonagem> consultaArmamentos = from amt in this.context.Armamento
+                join p in this.context.Personagem on amt.IdPersonagem equals p.IdJogador into res
+                from rs in res.DefaultIfEmpty()
+                where
+                    amt.IdArma == key
+                select new ArmamentoPersonagem() { Armamento = amt, Personagem = rs };
+            return await consultaArmamentos.ToArrayAsync();
         }
-
-        public async Task<AgendaHorario[]> GetAgendamentoByDayAsync(int day) {
-            IQueryable<AgendaHorario> consultaAgendamentos = from a in this.context.Agendamento
-            join h in this.context.Horario on a.IdHorario equals h.IdHorario into loj
-            from rs in loj.DefaultIfEmpty()
-            where
-                rs.DiaDaSemana == day
-            select new AgendaHorario() { Agendamento = a, Horario = rs };
-            return await consultaAgendamentos.ToArrayAsync();
-        }
-        public async Task<AgendaAluno[]> GetAlunoAgendamentoByHorarioAsync(int idHorario) {
-            IQueryable<AgendaAluno> consultaAgendamentos = from a in this.context.Aluno
-            join ag in this.context.Agendamento on a.Email equals ag.Email into loj
-            from rs in loj.DefaultIfEmpty()
-            where
-                rs.IdHorario == idHorario
-            select new AgendaAluno() { Agendamento = rs, Aluno = a };
-            return await consultaAgendamentos.ToArrayAsync();
-        }
-        public async Task<AgendaHorario[]> GetAgendamentoByDayMonitorAsync(int day, int idMonitor) {
-            IQueryable<AgendaHorario> consultaAgendamentos = from a in this.context.Agendamento
-            join h in this.context.Horario on a.IdHorario equals h.IdHorario into loj
-            from rs in loj.DefaultIfEmpty()
-            where
-                rs.DiaDaSemana == day && rs.IdMonitor == idMonitor
-            select new AgendaHorario() { Agendamento = a, Horario = rs };
-            return await consultaAgendamentos.ToArrayAsync();
-        }
-        public async Task<AgendaHorario[]> GetAgendamentoByHorarioAsync(int idHorario)
-        {
-            IQueryable<AgendaHorario> consultaAgendamentos = from a in this.context.Agendamento
-            join h in this.context.Horario on a.IdHorario equals h.IdHorario into loj
-            from rs in loj.DefaultIfEmpty()
-            where
-                a.IdHorario == idHorario
-            select new AgendaHorario() { Agendamento = a, Horario = rs };
-            return await consultaAgendamentos.ToArrayAsync();
-        }
-
-        //Monitor
-        public async Task<Monitor[]> GetAllMonitoresAsync()
-        {
-            IQueryable<Monitor> consultaMonitores = this.context.Monitor;
-            consultaMonitores = consultaMonitores.OrderBy(a => a.IdMonitor);
-            return await consultaMonitores.ToArrayAsync();
-        }
-        public async Task<Monitor> GetMonitorByKeyAsync(int key)
-        {
-            IQueryable<Monitor> consultaMonitores = this.context.Monitor;
-            consultaMonitores = consultaMonitores.Where(a => a.IdMonitor == key);
-            return await consultaMonitores.FirstOrDefaultAsync();
-        }
-        public async Task<MonitorAluno> GetMonitorByEmailAsync(string email)
-        {
-            IQueryable<MonitorAluno> consultaMonitores = from m in this.context.Monitor
-            join a in this.context.Aluno on m.Email equals a.Email into loj
-            from rs in loj.DefaultIfEmpty()
-            where
-                m.Email == email
-
-            select new MonitorAluno() { Monitor = m, Aluno = rs };
-            return await consultaMonitores.FirstAsync();
-        }
-        public async Task<MonitorAluno[]> GetMonitoresByNameAsync()
-        {
-            IQueryable<MonitorAluno> consultaMonitores = from m in this.context.Monitor
-            join a in this.context.Aluno on m.Email equals a.Email into loj
-            from rs in loj.DefaultIfEmpty()
-
-            select new MonitorAluno() { Monitor = m, Aluno = rs };
-            return await consultaMonitores.ToArrayAsync();
-        }
-        
-        //Horario
-        public async Task<Horario[]> GetAllHorariosAsync()
-        {
-            IQueryable<Horario> consultaHorarios = this.context.Horario;
-            consultaHorarios = consultaHorarios.OrderBy(a => a.DiaDaSemana);
-            return await consultaHorarios.ToArrayAsync();
-        }
-        public async Task<Horario> GetHorarioByKeyAsync(int key)
-        {
-            IQueryable<Horario> consultaHorarios = this.context.Horario;
-            consultaHorarios = consultaHorarios.Where(a => a.IdHorario == key);
-            return await consultaHorarios.FirstOrDefaultAsync();
-        }
-        public async Task<Horario[]> GetHorarioByDayAsync(int day)
-        {
-            IQueryable<Horario> consultaHorarios = this.context.Horario;
-            consultaHorarios = consultaHorarios.Where(a => a.DiaDaSemana == day);
-            return await consultaHorarios.ToArrayAsync();
-        }
-        public async Task<Horario[]> GetHorarioByMonitorAsync(int idMonitor)
-        {
-            IQueryable<Horario> consultaHorarios = this.context.Horario;
-            consultaHorarios = consultaHorarios.Where(a => a.IdMonitor == idMonitor);
-            return await consultaHorarios.ToArrayAsync();
-        }
-        public async Task<Horario[]> GetHorarioByDayMonitorAsync(int day, int idMonitor)
-        {
-            IQueryable<Horario> consultaHorarios = this.context.Horario;
-            consultaHorarios = consultaHorarios.Where(a => a.DiaDaSemana == day && a.IdMonitor == idMonitor);
-            return await consultaHorarios.ToArrayAsync();
-        }*/
     }
 }

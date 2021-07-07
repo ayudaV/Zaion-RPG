@@ -9,6 +9,7 @@ namespace Zaion_API.Models
         public string Username { get; set; }
         public string Senha { get; set; }
         public string NomeJogador { get; set; }
-
+        public string UrlImagem { get; set; }
+        public string Descricao { get; set; }
     }
 }

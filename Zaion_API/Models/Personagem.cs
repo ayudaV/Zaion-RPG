@@ -32,9 +32,11 @@ namespace Zaion_API.Models
         public string Historia { get; set; }
         public string Pai { get; set; }
         public string Mae { get; set; }
-        public string Nescionalidade { get; set; }
+        public string Nascionalidade { get; set; }
         public string PericiasEsp { get; set; }
         public string DetalhesEsp { get; set; }
+        public double Dinheiro { get; set; }
+        public string UrlImagem { get; set; }
 
     }
 }

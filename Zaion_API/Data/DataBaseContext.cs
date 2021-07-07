@@ -16,11 +16,12 @@ namespace Zaion_API.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<JogadorPersonagem>().HasNoKey();
-            modelBuilder.Entity<PersonagemInventario>().HasNoKey();
-            modelBuilder.Entity<PersonagemArmamento>().HasNoKey();
+            modelBuilder.Entity<PersonagemJogador>().HasNoKey();
             modelBuilder.Entity<InventarioItem>().HasNoKey();
+            modelBuilder.Entity<InventarioPersonagem>().HasNoKey();
             modelBuilder.Entity<ArmamentoArma>().HasNoKey();
+            modelBuilder.Entity<ArmamentoPersonagem>().HasNoKey();
+
         }
     }
 }

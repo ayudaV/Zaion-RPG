@@ -19,8 +19,10 @@ namespace Zaion_API.Data
 
         // Get para Personagens
         Task<Personagem[]> GetAllPersonagensAsync();
+        Task<PersonagemJogador[]> GetAllPersonagensJogadorAsync();
         Task<Personagem> GetPersonagemByKeyAsync(int key);
         Task<Personagem[]> GetPersonagemByNameAsync(string key);
+        Task<Personagem[]> GetPersonagemByJogadorAsync(int key);
 
         // Get para Itens
         Task<Item[]> GetAllItensAsync();
@@ -37,38 +39,16 @@ namespace Zaion_API.Data
         Task<Inventario> GetInventarioByKeyAsync(int key);
         Task<Inventario[]> GetInventarioByIdPersonagemAsync(int key);
         Task<Inventario[]> GetInventarioByIdItemAsync(int key);
+        Task<InventarioItem[]> GetInventarioItemByKeyAsync(int key);
+        Task<InventarioItem[]> GetInventarioItemByIdPersonagemAsync(int key);
 
         // Get para Armamentos
         Task<Armamento[]> GetAllArmamentosAsync();
         Task<Armamento> GetArmamentoByKeyAsync(int key);
         Task<Armamento[]> GetArmamentoByIdPersonagemAsync(int key);
         Task<Armamento[]> GetArmamentoByIdArmaAsync(int key);
+        Task<ArmamentoArma[]> GetArmamentoArmaByKeyAsync(int key);
+        Task<ArmamentoArma[]> GetArmamentoArmaByIdPersonagemAsync(int key);
 
-        /*
-                // GET para Aluno
-                Task<Aluno[]> GetAllAlunosAsync();
-                Task<Aluno> GetAlunoByKeyAsync(string key);
-
-                // GET para Monitor
-                Task<Monitor[]> GetAllMonitoresAsync();
-                Task<Monitor> GetMonitorByKeyAsync(int key);
-                Task<MonitorAluno> GetMonitorByEmailAsync(string email);
-                Task<MonitorAluno[]> GetMonitoresByNameAsync();
-
-                // GET para Horario
-                Task<Horario[]> GetAllHorariosAsync();
-                Task<Horario> GetHorarioByKeyAsync(int key);
-                Task<Horario[]> GetHorarioByDayAsync(int day);
-                Task<Horario[]> GetHorarioByMonitorAsync(int idMonitor);
-                Task<Horario[]> GetHorarioByDayMonitorAsync(int day, int idMonitor);
-
-                // GET para Agendamento
-                Task<Agendamento[]> GetAllAgendamentosAsync();
-                Task<Agendamento> GetAgendamentoByKeyAsync(int key);
-                Task<AgendaHorario[]> GetAgendamentoByEmailAsync(string email);
-                Task<AgendaHorario[]> GetAgendamentoByDayAsync(int day);
-                Task<AgendaAluno[]> GetAlunoAgendamentoByHorarioAsync(int idHorario);
-                Task<AgendaHorario[]> GetAgendamentoByDayMonitorAsync(int day, int idMonitor);
-                Task<AgendaHorario[]> GetAgendamentoByHorarioAsync(int idHorario);*/
     }
 }

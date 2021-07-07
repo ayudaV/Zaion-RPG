@@ -28,7 +28,12 @@ namespace Zaion_API.Controllers
             var result = await repository.GetAllPersonagensAsync();
             return Ok(result);
         }
-
+        [HttpGet("personagemJogador")]
+        public async Task<IActionResult> GetAllPersonagensJogador()
+        {
+            var result = await repository.GetAllPersonagensJogadorAsync();
+            return Ok(result);
+        }
         [HttpGet("{Key}")]
         public async Task<IActionResult> Get(int key)
         {
@@ -52,6 +57,23 @@ namespace Zaion_API.Controllers
             try
             {
                 var result = await repository.GetPersonagemByNameAsync(nome);
+                if (result == null)
+                    return this.StatusCode(StatusCodes.Status404NotFound);
+
+                return Ok(result);
+            }
+            catch
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Falha no acesso ao banco de dados.");
+            }
+        }
+
+        [HttpGet("jogador/{Nome}")]
+        public async Task<IActionResult> GetByJogador(int nome)
+        {
+            try
+            {
+                var result = await repository.GetPersonagemByJogadorAsync(nome);
                 if (result == null)
                     return this.StatusCode(StatusCodes.Status404NotFound);
 
