@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System;
-namespace api.Models
+namespace Zaion_API.Models
 {
     public class InventarioItem
     {

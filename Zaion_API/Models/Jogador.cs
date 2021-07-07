@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace api.Models
+namespace Zaion_API.Models
 {
     public class Jogador
     {
