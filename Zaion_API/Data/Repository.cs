@@ -27,25 +27,35 @@ namespace Zaion_API.Data
         {
             return (await this.context.SaveChangesAsync() > 0);
         }
-
         public void Update<T>(T entity) where T : class
         {
             this.context.Update(entity);
         }
+
+        //Jogador
+
+        public async Task<Jogador[]> GetAllJogadoresAsync()
+        {
+            IQueryable<Jogador> consultaJogadores = this.context.Jogador;
+            consultaJogadores = consultaJogadores.OrderBy(a => a.IdJogador);
+            return await consultaJogadores.ToArrayAsync();
+        }
+        public async Task<Jogador> GetJogadorByKeyAsync(int key)
+        {
+            IQueryable<Jogador> consultaJogadores = this.context.Jogador;
+            consultaJogadores = consultaJogadores.Where(a => a.IdJogador == key);
+            return await consultaJogadores.FirstOrDefaultAsync();
+        }
+        public async Task<Jogador[]> GetJogadorByNameAsync(string nome)
+        {
+            IQueryable<Jogador> consultaJogadores = this.context.Jogador;
+            consultaJogadores = consultaJogadores.Where(a => a.NomeJogador.Contains(nome));
+            consultaJogadores = consultaJogadores.OrderBy(a => a.IdJogador);
+            return await consultaJogadores.ToArrayAsync();
+        }
+
+
         /*
-        //Aluno
-        public async Task<Aluno[]> GetAllAlunosAsync()
-        {
-            IQueryable<Aluno> consultaAlunos = this.context.Aluno;
-            consultaAlunos = consultaAlunos.OrderBy(a => a.Apelido);
-            return await consultaAlunos.ToArrayAsync();
-        }
-        public async Task<Aluno> GetAlunoByKeyAsync(string key)
-        {
-            IQueryable<Aluno> consultaAlunos = this.context.Aluno;
-            consultaAlunos = consultaAlunos.Where(a => a.Email == key);
-            return await consultaAlunos.FirstOrDefaultAsync();
-        }
 
         //Agendamento
         public async Task<Agendamento[]> GetAllAgendamentosAsync()

@@ -29,7 +29,7 @@ namespace Zaion_API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataBaseContext>(
-                x => x.UseSqlServer(Configuration.GetConnectionString("DataBaseConnection"))
+                x => x.UseSqlServer(Configuration.GetConnectionString("StringConexaoSQLServer"))
             );
             services.AddCors();
             services.AddControllers();
@@ -47,7 +47,7 @@ namespace Zaion_API
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Zaion_API v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "api v1"));
             }
 
             // app.UseHttpsRedirection();
