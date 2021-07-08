@@ -34,6 +34,7 @@ namespace Zaion_API.Controllers
             var result = await repository.GetAllPersonagensJogadorAsync();
             return Ok(result);
         }
+
         [HttpGet("{Key}")]
         public async Task<IActionResult> Get(int key)
         {
@@ -56,7 +57,7 @@ namespace Zaion_API.Controllers
         {
             try
             {
-                var result = await repository.GetPersonagemByNameAsync(nome);
+                var result = await repository.GetPersonagensByNameAsync(nome);
                 if (result == null)
                     return this.StatusCode(StatusCodes.Status404NotFound);
 
@@ -73,7 +74,7 @@ namespace Zaion_API.Controllers
         {
             try
             {
-                var result = await repository.GetPersonagemByJogadorAsync(nome);
+                var result = await repository.GetPersonagensByJogadorAsync(nome);
                 if (result == null)
                     return this.StatusCode(StatusCodes.Status404NotFound);
 
@@ -84,7 +85,13 @@ namespace Zaion_API.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Falha no acesso ao banco de dados.");
             }
         }
-
+        
+        [HttpGet("peso/{Min}/{Max}")]
+        public async Task<IActionResult> GetPersonagensByPeso(double min, double max)
+        {
+            var result = await repository.GetPersonagensByPesoAsync(min, max);
+            return Ok(result);
+        }
         [HttpPost]
         public async Task<ActionResult> post(Personagem model)
         {

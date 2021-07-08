@@ -51,7 +51,7 @@ namespace Zaion_API.Controllers
         {
             try
             {
-                var result = await repository.GetArmamentoByIdPersonagemAsync(key);
+                var result = await repository.GetArmamentosByIdPersonagemAsync(key);
                 if (result == null)
                     return this.StatusCode(StatusCodes.Status404NotFound);
 
@@ -67,7 +67,7 @@ namespace Zaion_API.Controllers
         {
             try
             {
-                var result = await repository.GetArmamentoByIdArmaAsync(key);
+                var result = await repository.GetArmamentosByIdArmaAsync(key);
                 if (result == null)
                     return this.StatusCode(StatusCodes.Status404NotFound);
 

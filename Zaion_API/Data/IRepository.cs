@@ -15,40 +15,42 @@ namespace Zaion_API.Data
         // Get para Jogador
         Task<Jogador[]> GetAllJogadoresAsync();
         Task<Jogador> GetJogadorByKeyAsync(int key);
-        Task<Jogador[]> GetJogadorByNameAsync(string key);
+        Task<Jogador[]> GetJogadoresByNameAsync(string key);
+        Task<Jogador[]> GetJogadoresByUsernameAsync(string key);
 
         // Get para Personagens
         Task<Personagem[]> GetAllPersonagensAsync();
         Task<PersonagemJogador[]> GetAllPersonagensJogadorAsync();
         Task<Personagem> GetPersonagemByKeyAsync(int key);
-        Task<Personagem[]> GetPersonagemByNameAsync(string key);
-        Task<Personagem[]> GetPersonagemByJogadorAsync(int key);
+        Task<Personagem[]> GetPersonagensByNameAsync(string key);
+        Task<Personagem[]> GetPersonagensByJogadorAsync(int key);
+        Task<Personagem[]> GetPersonagensByPesoAsync(double min, double max);
 
         // Get para Itens
         Task<Item[]> GetAllItensAsync();
         Task<Item> GetItemByKeyAsync(int key);
-        Task<Item[]> GetItemByNameAsync(string key);
+        Task<Item[]> GetItensByNameAsync(string key);
 
         // Get para Armas
         Task<Arma[]> GetAllArmasAsync();
         Task<Arma> GetArmaByKeyAsync(int key);
-        Task<Arma[]> GetArmaByNameAsync(string key);
+        Task<Arma[]> GetArmasByNameAsync(string key);
 
         // Get para Inventarios
         Task<Inventario[]> GetAllInventariosAsync();
         Task<Inventario> GetInventarioByKeyAsync(int key);
-        Task<Inventario[]> GetInventarioByIdPersonagemAsync(int key);
-        Task<Inventario[]> GetInventarioByIdItemAsync(int key);
-        Task<InventarioItem[]> GetInventarioItemByKeyAsync(int key);
-        Task<InventarioItem[]> GetInventarioItemByIdPersonagemAsync(int key);
+        Task<Inventario[]> GetInventariosByIdPersonagemAsync(int key);
+        Task<Inventario[]> GetInventariosByIdItemAsync(int key);
+        Task<InventarioItem[]> GetInventariosItensByKeyAsync(int key);
+        Task<InventarioItem[]> GetInventariosItensByIdPersonagemAsync(int key);
 
         // Get para Armamentos
         Task<Armamento[]> GetAllArmamentosAsync();
         Task<Armamento> GetArmamentoByKeyAsync(int key);
-        Task<Armamento[]> GetArmamentoByIdPersonagemAsync(int key);
-        Task<Armamento[]> GetArmamentoByIdArmaAsync(int key);
-        Task<ArmamentoArma[]> GetArmamentoArmaByKeyAsync(int key);
-        Task<ArmamentoArma[]> GetArmamentoArmaByIdPersonagemAsync(int key);
+        Task<Armamento[]> GetArmamentosByIdPersonagemAsync(int key);
+        Task<Armamento[]> GetArmamentosByIdArmaAsync(int key);
+        Task<ArmamentoArma[]> GetArmamentosArmasByKeyAsync(int key);
+        Task<ArmamentoArma[]> GetArmamentosArmasByIdPersonagemAsync(int key);
 
     }
 }

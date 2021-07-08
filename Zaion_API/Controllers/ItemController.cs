@@ -51,7 +51,7 @@ namespace Zaion_API.Controllers
         {
             try
             {
-                var result = await repository.GetItemByNameAsync(nome);
+                var result = await repository.GetItensByNameAsync(nome);
                 if (result == null)
                     return this.StatusCode(StatusCodes.Status404NotFound);
 

@@ -51,7 +51,7 @@ namespace Zaion_API.Controllers
         {
             try
             {
-                var result = await repository.GetInventarioByIdPersonagemAsync(key);
+                var result = await repository.GetInventariosByIdPersonagemAsync(key);
                 if (result == null)
                     return this.StatusCode(StatusCodes.Status404NotFound);
 
@@ -68,7 +68,7 @@ namespace Zaion_API.Controllers
         {
             try
             {
-                var result = await repository.GetInventarioByIdItemAsync(key);
+                var result = await repository.GetInventariosByIdItemAsync(key);
                 if (result == null)
                     return this.StatusCode(StatusCodes.Status404NotFound);
 

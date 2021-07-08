@@ -51,7 +51,24 @@ namespace Zaion_API.Controllers
         {
             try
             {
-                var result = await repository.GetJogadorByNameAsync(nome);
+                var result = await repository.GetJogadoresByNameAsync(nome);
+                if (result == null)
+                    return this.StatusCode(StatusCodes.Status404NotFound);
+
+                return Ok(result);
+            }
+            catch
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Falha no acesso ao banco de dados.");
+            }
+        }
+        
+        [HttpGet("username/{Nome}")]
+        public async Task<IActionResult> GetByUsername(string nome)
+        {
+            try
+            {
+                var result = await repository.GetJogadoresByUsernameAsync(nome);
                 if (result == null)
                     return this.StatusCode(StatusCodes.Status404NotFound);
 

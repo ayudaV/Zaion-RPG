@@ -45,14 +45,20 @@ namespace Zaion_API.Data
             consultaJogadores = consultaJogadores.Where(a => a.IdJogador == key);
             return await consultaJogadores.FirstOrDefaultAsync();
         }
-        public async Task<Jogador[]> GetJogadorByNameAsync(string nome)
+        public async Task<Jogador[]> GetJogadoresByNameAsync(string nome)
         {
             IQueryable<Jogador> consultaJogadores = this.context.Jogador;
             consultaJogadores = consultaJogadores.Where(a => a.NomeJogador.Contains(nome));
             consultaJogadores = consultaJogadores.OrderBy(a => a.Username);
             return await consultaJogadores.ToArrayAsync();
         }
-
+        public async Task<Jogador[]> GetJogadoresByUsernameAsync(string nome)
+        {
+            IQueryable<Jogador> consultaJogadores = this.context.Jogador;
+            consultaJogadores = consultaJogadores.Where(a => a.Username.Contains(nome));
+            consultaJogadores = consultaJogadores.OrderBy(a => a.Username);
+            return await consultaJogadores.ToArrayAsync();
+        }
         //Personagem
         public async Task<Personagem[]> GetAllPersonagensAsync()
         {
@@ -66,14 +72,14 @@ namespace Zaion_API.Data
             consultaPersonagens = consultaPersonagens.Where(a => a.IdPersonagem == key);
             return await consultaPersonagens.FirstOrDefaultAsync();
         }
-        public async Task<Personagem[]> GetPersonagemByNameAsync(string nome)
+        public async Task<Personagem[]> GetPersonagensByNameAsync(string nome)
         {
             IQueryable<Personagem> consultaPersonagens = this.context.Personagem;
             consultaPersonagens = consultaPersonagens.Where(a => a.Nome.Contains(nome));
             consultaPersonagens = consultaPersonagens.OrderBy(a => a.Nome);
             return await consultaPersonagens.ToArrayAsync();
         }
-        public async Task<Personagem[]> GetPersonagemByJogadorAsync(int key)
+        public async Task<Personagem[]> GetPersonagensByJogadorAsync(int key)
         {
             IQueryable<Personagem> consultaPersonagens = this.context.Personagem;
             consultaPersonagens = consultaPersonagens.Where(a => a.IdJogador == key);
@@ -88,6 +94,14 @@ namespace Zaion_API.Data
             select new PersonagemJogador() { Personagem = p, Jogador = rs };
             return await consultaJogadores.ToArrayAsync();
         }
+        public async Task<Personagem[]> GetPersonagensByPesoAsync(double min, double max)
+        {
+            IQueryable<Personagem> consultaPersonagens = this.context.Personagem;
+            consultaPersonagens = consultaPersonagens.Where(a => min <= a.Peso && a.Peso <= max);
+            consultaPersonagens = consultaPersonagens.OrderBy(a => a.Nome);
+            return await consultaPersonagens.ToArrayAsync();
+        }
+
         //Item
         public async Task<Item[]> GetAllItensAsync()
         {
@@ -101,7 +115,7 @@ namespace Zaion_API.Data
             consultaItens = consultaItens.Where(a => a.IdItem == key);
             return await consultaItens.FirstOrDefaultAsync();
         }
-        public async Task<Item[]> GetItemByNameAsync(string nome)
+        public async Task<Item[]> GetItensByNameAsync(string nome)
         {
             IQueryable<Item> consultaItens = this.context.Item;
             consultaItens = consultaItens.Where(a => a.Nome.Contains(nome));
@@ -122,7 +136,7 @@ namespace Zaion_API.Data
             consultaArmas = consultaArmas.Where(a => a.IdArma == key);
             return await consultaArmas.FirstOrDefaultAsync();
         }
-        public async Task<Arma[]> GetArmaByNameAsync(string nome)
+        public async Task<Arma[]> GetArmasByNameAsync(string nome)
         {
             IQueryable<Arma> consultaArmas = this.context.Arma;
             consultaArmas = consultaArmas.Where(a => a.Nome.Contains(nome));
@@ -143,19 +157,19 @@ namespace Zaion_API.Data
             consultaInventarios = consultaInventarios.Where(a => a.IdInventario == key);
             return await consultaInventarios.FirstOrDefaultAsync();
         }
-        public async Task<Inventario[]> GetInventarioByIdPersonagemAsync(int key)
+        public async Task<Inventario[]> GetInventariosByIdPersonagemAsync(int key)
         {
             IQueryable<Inventario> consultaInventarios = this.context.Inventario;
             consultaInventarios = consultaInventarios.Where(a => a.IdPersonagem == key);
             return await consultaInventarios.ToArrayAsync();
         }
-        public async Task<Inventario[]> GetInventarioByIdItemAsync(int key)
+        public async Task<Inventario[]> GetInventariosByIdItemAsync(int key)
         {
             IQueryable<Inventario> consultaInventarios = this.context.Inventario;
             consultaInventarios = consultaInventarios.Where(a => a.IdItem == key);
             return await consultaInventarios.ToArrayAsync();
         }
-        public async Task<InventarioItem[]> GetInventarioItemByKeyAsync(int key)
+        public async Task<InventarioItem[]> GetInventariosItensByKeyAsync(int key)
         {
             IQueryable<InventarioItem> consultaInventarios = from inv in this.context.Inventario
                 join item in this.context.Item on inv.IdItem equals item.IdItem into res
@@ -165,7 +179,7 @@ namespace Zaion_API.Data
                 select new InventarioItem() { Inventario = inv, Item = rs };
             return await consultaInventarios.ToArrayAsync();
         }
-        public async Task<InventarioItem[]> GetInventarioItemByIdPersonagemAsync(int key)
+        public async Task<InventarioItem[]> GetInventariosItensByIdPersonagemAsync(int key)
         {
             IQueryable<InventarioItem> consultaInventarios = from inv in this.context.Inventario
                 join item in this.context.Item on inv.IdItem equals item.IdItem into res
@@ -175,7 +189,7 @@ namespace Zaion_API.Data
                 select new InventarioItem() { Inventario = inv, Item = rs };
             return await consultaInventarios.ToArrayAsync();
         }
-        public async Task<InventarioPersonagem[]> GetInventarioPersonagemByIdItemAsync(int key)
+        public async Task<InventarioPersonagem[]> GetInventariosPersonagensByIdItemAsync(int key)
         {
             IQueryable<InventarioPersonagem> consultaArmamentos = from inv in this.context.Inventario
                 join p in this.context.Personagem on inv.IdPersonagem equals p.IdJogador into res
@@ -198,19 +212,19 @@ namespace Zaion_API.Data
             consultaArmamentos = consultaArmamentos.Where(a => a.IdArmamento == key);
             return await consultaArmamentos.FirstOrDefaultAsync();
         }
-        public async Task<Armamento[]> GetArmamentoByIdPersonagemAsync(int key)
+        public async Task<Armamento[]> GetArmamentosByIdPersonagemAsync(int key)
         {
             IQueryable<Armamento> consultaArmamentos = this.context.Armamento;
             consultaArmamentos = consultaArmamentos.Where(a => a.IdPersonagem == key);
             return await consultaArmamentos.ToArrayAsync();
         }
-        public async Task<Armamento[]> GetArmamentoByIdArmaAsync(int key)
+        public async Task<Armamento[]> GetArmamentosByIdArmaAsync(int key)
         {
             IQueryable<Armamento> consultaArmamentos = this.context.Armamento;
             consultaArmamentos = consultaArmamentos.Where(a => a.IdArma == key);
             return await consultaArmamentos.ToArrayAsync();
         }
-        public async Task<ArmamentoArma[]> GetArmamentoArmaByKeyAsync(int key)
+        public async Task<ArmamentoArma[]> GetArmamentosArmasByKeyAsync(int key)
         {
             IQueryable<ArmamentoArma> consultaArmamentos = from amt in this.context.Armamento
                 join arma in this.context.Arma on amt.IdArma equals arma.IdArma into res
@@ -220,7 +234,7 @@ namespace Zaion_API.Data
                 select new ArmamentoArma() { Armamento = amt, Arma = rs };
             return await consultaArmamentos.ToArrayAsync();
         }
-        public async Task<ArmamentoArma[]> GetArmamentoArmaByIdPersonagemAsync(int key)
+        public async Task<ArmamentoArma[]> GetArmamentosArmasByIdPersonagemAsync(int key)
         {
             IQueryable<ArmamentoArma> consultaArmamentos = from amt in this.context.Armamento
                 join arma in this.context.Arma on amt.IdArma equals arma.IdArma into res
@@ -230,7 +244,7 @@ namespace Zaion_API.Data
                 select new ArmamentoArma() { Armamento = amt, Arma = rs };
             return await consultaArmamentos.ToArrayAsync();
         }
-        public async Task<ArmamentoPersonagem[]> GetArmamentoPersonagemByIdArmaAsync(int key)
+        public async Task<ArmamentoPersonagem[]> GetArmamentosPersonagemsByIdArmaAsync(int key)
         {
             IQueryable<ArmamentoPersonagem> consultaArmamentos = from amt in this.context.Armamento
                 join p in this.context.Personagem on amt.IdPersonagem equals p.IdJogador into res
