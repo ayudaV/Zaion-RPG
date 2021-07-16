@@ -1,0 +1,84 @@
+@import "~bootstrap/scss/bootstrap";
+
+$primary1: #feeafa;
+$primary2: #d8f3dc;
+$secundary: #1d4c3f;
+$context1: #03101b;
+$context2: #4b2b7f;
+
+@-webkit-keyframes move {
+    0% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@keyframes move {
+    0% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.loginWindow {
+    background-color: $primary2;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centralized {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo {
+    width: 900vw;
+}
+.btnLogin {
+    width: 40%;
+}
+.loginForm {
+    -webkit-animation: move 1s alternate; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: move 1s alternate; /* Firefox < 16 */
+    animation: move 1s alternate;
+}
+@media screen and (min-width: 800px) {
+    .loginForm {
+        width: 30vw;
+        padding: 30px;
+        background-color: $secundary;
+        color: #fff;
+        border-radius: 20px;
+        text-align: center;
+    }
+}
+@media screen and (min-width: 500px) and (max-width: 800px) {
+    .loginForm {
+        width: 60vw;
+        padding: 30px;
+        background-color: $secundary;
+        color: #fff;
+        border-radius: 20px;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .loginForm {
+        width: 80vw;
+        padding: 30px;
+        background-color: $secundary;
+        color: #fff;
+        border-radius: 20px;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}

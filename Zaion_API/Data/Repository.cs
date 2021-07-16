@@ -59,6 +59,13 @@ namespace Zaion_API.Data
             consultaJogadores = consultaJogadores.OrderBy(a => a.Username);
             return await consultaJogadores.ToArrayAsync();
         }
+        public async Task<Jogador> GetJogadorByUsernameSenha(string username, string senha)
+        {
+            IQueryable<Jogador> usuario = this.context.Jogador;
+            usuario = usuario.Where(u => u.Username == username && u.Senha == senha);
+            return await usuario.FirstOrDefaultAsync();
+        }
+        
         //Personagem
         public async Task<Personagem[]> GetAllPersonagensAsync()
         {

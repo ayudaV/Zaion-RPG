@@ -62,7 +62,7 @@ namespace Zaion_API.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Falha no acesso ao banco de dados.");
             }
         }
-        
+
         [HttpGet("username/{Nome}")]
         public async Task<IActionResult> GetByUsername(string nome)
         {
@@ -146,6 +146,5 @@ namespace Zaion_API.Controllers
             // retorna BadRequest se não conseguiu deletar
             //return BadRequest();
         }
-
     }
 }

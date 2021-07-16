@@ -17,6 +17,7 @@ namespace Zaion_API.Data
         Task<Jogador> GetJogadorByKeyAsync(int key);
         Task<Jogador[]> GetJogadoresByNameAsync(string key);
         Task<Jogador[]> GetJogadoresByUsernameAsync(string key);
+        Task<Jogador> GetJogadorByUsernameSenha(string username, string senha);
 
         // Get para Personagens
         Task<Personagem[]> GetAllPersonagensAsync();
