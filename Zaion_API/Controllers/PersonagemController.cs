@@ -23,11 +23,13 @@ namespace Zaion_API.Controllers
         }
 
         [HttpGet]
+        //[Authorize(Roles = "admin")]
         public async Task<IActionResult> GetAll()
         {
             var result = await repository.GetAllPersonagensAsync();
             return Ok(result);
         }
+        
         [HttpGet("personagemJogador")]
         public async Task<IActionResult> GetAllPersonagensJogador()
         {

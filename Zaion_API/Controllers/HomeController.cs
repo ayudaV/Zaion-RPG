@@ -14,11 +14,11 @@ namespace Zaion_API.Controllers
     [Route("[controller]")]
     public class HomeController : Controller
     {
-        private readonly DataBaseContext _repository;
-        public HomeController(DataBaseContext repository)
+        private readonly IRepository repository;
+        public HomeController(IRepository rep)
         {
             // construtor
-            _repository = repository;
+            repository = rep;
         }
         [HttpPost]
         [Route("login")]
@@ -26,9 +26,7 @@ namespace Zaion_API.Controllers
         public async Task<ActionResult<dynamic>> Authenticate([FromBody] Jogador usuario)
         {
             //verifica se existe aluno a ser excluído
-            var user = _repository.Jogador 
-            .Where(u => u.Username == usuario.Username && u.Senha == usuario.Senha)
-            .FirstOrDefault();
+            var user = await repository.GetJogadorByUsernameSenha(usuario.Username, usuario.Senha);
 
             if (user == null)
                 return NotFound(new { message = "Usuário ou senha inválidos" });
@@ -50,8 +48,8 @@ namespace Zaion_API.Controllers
             //verifica se existe aluno a ser excluído
             try
             {
-                _repository.Add(usuario);
-                if (await _repository.SaveChangesAsync() == 1)
+                repository.Add(usuario);
+                if (await repository.SaveChangesAsync())
                     return Ok();
             }
             catch

@@ -2,6 +2,6 @@ namespace Zaion_API
 {
     public static class Settings
     {
-        public static string Secret = "43e4dbf0-52ed-4203-895d-42b586496bd4";
+        public static string Secret = "5a6169-6f6e4b-4559";
     }
 }
