@@ -17,10 +17,14 @@ const Signup = ({ dispatch }) => {
     const [cSenha, setCPassword] = useState("");
     const [nomeJogador, setNomeJogador] = useState("");
     const [descricao, setDescricao] = useState("");
-    const [urlImagem, setUrlImagem] = useState("");
+
+    const [imgName, setImgName] = useState("");
+    const [imgSrc, setImgSrc] = useState(Logo);
+    const [imgFile, setImgFile] = useState();
 
     const [user, setUser] = useState();
     const [erro, setErro] = useState('');
+    const [errors, setErrors] = useState({});
     const [visible, setVisibility] = useState(faEyeSlash);
     const [passVisibility, setPassVisibility] = useState("password");
 
@@ -34,42 +38,71 @@ const Signup = ({ dispatch }) => {
             setVisibility(faEyeSlash)
         }
     }
-
+    const showPreview = e => {
+        if (e.target.files && e.target.files[0]) {
+            let imageFile = e.target.files[0];
+            const reader = new FileReader();
+            reader.onload = x => {
+                setImgFile(imageFile)
+                setImgSrc(x.target.result)
+            }
+            reader.readAsDataURL(imageFile)
+        }
+        else {
+            setImgFile(null)
+            setImgSrc(Logo)
+        }
+    }
     const handleSubmit = async e => {
         e.preventDefault();
-        if (senha !== cSenha) {
-            setErro("As senhas não coincidem!")
-        }
-        const userForm = { username, senha, nomeJogador, descricao, urlImagem };
+        if (validate()) {
+            const userForm = { username, senha, nomeJogador, descricao, imgName };
 
-        await fetch(`http://localhost:5000/home/signup`, {
-            method: "POST",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(userForm)
-        })
-            .then(
-                resp => {
-
-                    if (resp.ok) {
-                        // console.log(resp.json());
-                        resp.json().then((data) => {
-                            console.log('data.user: ' + data.user);
-                            setUser(data);
-                            dispatch(LoginActions.setLogin(data.user))
-                        })
-                    }
-                    else {
-                        console.log('Nome de usuário já ultilizado ou servidor off-line.');
-                        setErro("Nome de usuário já ultilizado ou servidor off-line.");
-                    }
-                })
-            .catch(function (error) {
-                console.log('There has been a problem with your fetch operation: ' + error.message);
+            await fetch(`http://localhost:5000/home/signup`, {
+                method: "POST",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userForm)
             })
+                .then(
+                    resp => {
+
+                        if (resp.ok) {
+                            // console.log(resp.json());
+                            resp.json().then((data) => {
+                                console.log('data.user: ' + data.user);
+                                setUser(data);
+                                dispatch(LoginActions.setLogin(data.user))
+                            })
+                        }
+                        else {
+                            console.log('Nome de usuário já ultilizado ou servidor off-line.');
+                            setErro("Nome de usuário já ultilizado ou servidor off-line.");
+                        }
+                    })
+                .catch(function (error) {
+                    console.log('There has been a problem with your fetch operation: ' + error.message);
+                })
+        }else{
+            console.log("Erro de validação!")
+        }
     }
+
+    const validate = () => {
+        console.log("Oi")
+        let temp = {};
+        temp.username = username === "" ? false : true;
+        temp.senha = senha === "" ? false : true;
+        temp.cSenha = cSenha !== senha || cSenha === "" ? false : true;
+        temp.nomeJogador = nomeJogador === "" ? false : true;
+        setErrors(temp)
+        return Object.values(temp).every(x => x === true)
+    }
+    
+    const applyErrorClass = field => ((field in errors && errors[field] === false) ? ' invalid-field' : '')
+
 
     return (
         user ? <Redirect to="/" /> :
@@ -78,20 +111,18 @@ const Signup = ({ dispatch }) => {
                     <table>
                         <tbody>
                             <tr>
-                                <td rowspan="3" width="20%">
+                                <td rowSpan="3" width="20%">
                                     <Figure className="centralized">
-                                        <Figure.Image
-                                            className="logo"
-                                            alt="Logo Zaion"
-                                            src={Logo}
-                                        />
+                                        <img src={imgSrc} className="logo" alt="Logo Zaion" />
                                     </Figure>
+
+
                                 </td>
                                 <td width="10%">
                                     <FontAwesomeIcon icon={faUser} className="icon" style={{ fontSize: "20" }} />
                                 </td>
-                                <td colspan="3">
-                                    <Form.Control type="text" placeholder="Username"
+                                <td colSpan="3">
+                                    <Form.Control type="text" placeholder="Username" className={applyErrorClass('username')}
                                         value={username} onChange={({ target }) => setUsername(target.value)} />
                                 </td>
                             </tr>
@@ -99,8 +130,8 @@ const Signup = ({ dispatch }) => {
                                 <td>
                                     <FontAwesomeIcon icon={faIdCard} className="icon" style={{ fontSize: "20" }} />
                                 </td>
-                                <td colspan="3">
-                                    <Form.Control type="text" placeholder="Full Name"
+                                <td colSpan="3">
+                                    <Form.Control type="text" placeholder="Full Name" className={applyErrorClass('nomeJogador')}
                                         value={nomeJogador} onChange={({ target }) => setNomeJogador(target.value)} />
                                 </td>
                             </tr>
@@ -109,11 +140,11 @@ const Signup = ({ dispatch }) => {
                                     <FontAwesomeIcon icon={faLock} className="icon" style={{ fontSize: "20" }} />
                                 </td>
                                 <td>
-                                    <Form.Control type={passVisibility} placeholder="Password"
-                                        value={senha} onChange={({ target }) => setPassword(target.value)} className="senha" />
+                                    <Form.Control type={passVisibility} placeholder="Password" className={applyErrorClass('senha')}
+                                        value={senha} onChange={({ target }) => setPassword(target.value)}/>
                                 </td>
                                 <td>
-                                    <Form.Control type={passVisibility} placeholder="Confirm Password"
+                                    <Form.Control type={passVisibility} placeholder="Confirm Password" className={applyErrorClass('cSenha')}
                                         value={cSenha} onChange={({ target }) => setCPassword(target.value)} />
                                 </td>
                                 <td width="7%">
@@ -127,7 +158,7 @@ const Signup = ({ dispatch }) => {
                                 <td>
                                     <FontAwesomeIcon icon={faBook} className="icon" style={{ fontSize: "20" }} />
                                 </td>
-                                <td colspan="2">
+                                <td colSpan="2">
                                     <Form.Control as="textarea" aria-label="Description" value={descricao}
                                         onChange={({ target }) => setDescricao(target.value)} />
                                 </td>
@@ -140,9 +171,8 @@ const Signup = ({ dispatch }) => {
                                 <td>
                                     <FontAwesomeIcon icon={faCamera} className="icon" style={{ fontSize: "20" }} />
                                 </td>
-                                <td colspan="2">
-                                    <Form.Control type="file" className="imgFileButton"
-                                        value={urlImagem} onChange={({ target }) => setUrlImagem(target.value)} />
+                                <td colSpan="2">
+                                    <Form.Control type="file" className="imgFileButton" onChange={showPreview} />
                                 </td>
                             </tr>
                         </tbody>

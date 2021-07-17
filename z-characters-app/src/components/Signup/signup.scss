@@ -52,7 +52,9 @@ $context2: #4b2b7f;
 Figure {
     margin: 0;
 }
-
+.logo {
+    width: 20vw;
+}
 table {
     width: 90%;
     margin: 10px;
@@ -62,6 +64,11 @@ table td {
 }
 .imgFileButton {
     border-radius: 5px;
+}
+.invalid-field {
+    border-color: #dc3545;
+    color: #dc3545;
+    background-color: #fff;
 }
 @media screen and (min-width: 800px) {
     .signupForm {
