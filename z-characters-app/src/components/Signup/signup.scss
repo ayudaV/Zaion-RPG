@@ -37,27 +37,22 @@ $context2: #4b2b7f;
     justify-content: center;
     align-items: center;
 }
-.logo {
-    width: 900vw;
+
+.btnSignup {
+    width: 90%;
 }
-.btnLogin {
-    width: 40%;
-}
-.loginForm {
+.signupForm {
     -webkit-animation: move 1s alternate; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: move 1s alternate; /* Firefox < 16 */
     animation: move 1s alternate;
 }
 .alertErro {
     margin: 20px;
-    width: 90%;
 }
 Figure {
     margin: 0;
 }
-.cadastro {
-    margin-top: 10px;
-}
+
 table {
     width: 90%;
     margin: 10px;
@@ -65,9 +60,12 @@ table {
 table td {
     padding: 5px;
 }
+.imgFileButton {
+    border-radius: 5px;
+}
 @media screen and (min-width: 800px) {
-    .loginForm {
-        width: 30vw;
+    .signupForm {
+        width: 60vw;
         padding: 30px;
         background-color: $secundary;
         color: #fff;
@@ -76,8 +74,8 @@ table td {
     }
 }
 @media screen and (min-width: 500px) and (max-width: 800px) {
-    .loginForm {
-        width: 60vw;
+    .signupForm {
+        width: 80vw;
         padding: 30px;
         background-color: $secundary;
         color: #fff;
@@ -88,8 +86,8 @@ table td {
     }
 }
 @media screen and (max-width: 500px) {
-    .loginForm {
-        width: 85vw;
+    .signupForm {
+        width: 90vw;
         padding: 30px;
         background-color: $secundary;
         color: #fff;

@@ -1,26 +1,7 @@
-import Produce from 'immer'
-const INITIAL_STATE = {
-    user: {
-        email: "",
-        username: "Any",
-        senha: '',
-    }
-}
-export default function login(state = INITIAL_STATE, action) {
-    console.log(action)
+import {combineReducers} from 'redux';
 
-    switch (action.type) {
-        case 'SET_LOGIN': {
-            localStorage.setItem('email', action.user.email);
-            localStorage.setItem('username', action.user.username);
-            localStorage.setItem('senha', action.user.senha);
+import login from './login';
 
-            return {
-                ...state,
-                user: action.user,
-            };
-        }
-        default: break;
-    }
-    return state;
-}
+export default combineReducers({
+    login,
+})

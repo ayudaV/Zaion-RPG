@@ -4,11 +4,12 @@ import { setLogin } from "../../store/actions/login";
 
 const LocalStorageCheck = ({ children, setLogin }) => {
     const user = {
-        idUsuario: localStorage.getItem('idUsuario'),
+        idJogador: localStorage.getItem('idJogador'),
         username: localStorage.getItem('username'),
-        email: localStorage.getItem('email'),
+        nomeJogador: localStorage.getItem('nomeJogador'),
+        urlImagem: localStorage.getItem('urlImagem'),
         descricao: localStorage.getItem('descricao'),
-
+        role: localStorage.getItem('role')
     }
 
     setLogin(user)

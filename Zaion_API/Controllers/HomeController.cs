@@ -48,6 +48,8 @@ namespace Zaion_API.Controllers
             //verifica se existe aluno a ser excluído
             try
             {
+                if(repository.GetJogadoresByUsernameAsync(usuario.Username) != null)
+                return BadRequest("Nome de Usuario ja utilizado.");
                 repository.Add(usuario);
                 if (await repository.SaveChangesAsync())
                     return Ok();

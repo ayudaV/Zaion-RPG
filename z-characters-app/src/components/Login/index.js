@@ -3,8 +3,8 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faLock, faExclamationTriangle, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { Form, Button, Figure, Col } from 'react-bootstrap';
+import { faUser, faLock, faExclamationTriangle, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { Form, Button, Figure, Alert } from 'react-bootstrap';
 import './login.scss';
 
 import * as LoginActions from '../../store/actions/login'
@@ -12,7 +12,7 @@ import * as LoginActions from '../../store/actions/login'
 import Logo from '../../assets/images/zaion_logo.png';
 
 const Login = ({ dispatch }) => {
-    const [email, setUsuario] = useState("");
+    const [username, setUsername] = useState("");
     const [senha, setPassword] = useState("");
     const [user, setUser] = useState();
     const [erro, setErro] = useState('');
@@ -33,9 +33,9 @@ const Login = ({ dispatch }) => {
     const handleSubmit = async e => {
         e.preventDefault();
 
-        const userForm = { email, senha };
+        const userForm = { username, senha };
 
-        await fetch(`http://localhost:5000/jogador/login`, {
+        await fetch(`http://localhost:5000/home/login`, {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
@@ -48,7 +48,7 @@ const Login = ({ dispatch }) => {
                     if (resp.ok) {
                         // console.log(resp.json());
                         resp.json().then((data) => {
-                            console.log('data.user.email: ' + data.user.email);
+                            console.log('data.user: ' + data.user);
                             setUser(data);
                             dispatch(LoginActions.setLogin(data.user))
                         })
@@ -74,37 +74,39 @@ const Login = ({ dispatch }) => {
                             src={Logo}
                         />
                     </Figure>
-                    <Form.Group>
-                        <Form.Row controlId="formPlaintextPassword">
-                            <Form.Label column sm="0.5">
-                                <FontAwesomeIcon icon={faEnvelope} className="icon" style={{ fontSize: "20" }} />
-                            </Form.Label>
-                            <Col sm="9">
-                                <Form.Control type="email" placeholder="Enter email"
-                                    value={email} onChange={({ target }) => setUsuario(target.value)} />
-                            </Col>
-                        </Form.Row>
-                    </Form.Group>
-
-                    <Form.Group>
-                        <Form.Row controlId="formPlaintextPassword">
-                            <Form.Label column sm="0.5">
-                                <FontAwesomeIcon icon={faLock} className="icon" style={{ fontSize: "20" }} />
-                            </Form.Label>
-                            <Col sm="9">
-                                <Form.Control type="password" placeholder="Password"
-                                    value={senha} onChange={({ target }) => setPassword(target.value)} id="senha" />
-                            </Col>
-                            <Col className="centralized" sm="1">
-                                <FontAwesomeIcon icon={visible} className="icon" style={{margin:5}} onClick={mostrarSenha} />
-                            </Col>
-                        </Form.Row>
-                    </Form.Group>
-
-                    <Form.Group controlId="formBasicCheckbox">
-                    </Form.Group>
-
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <FontAwesomeIcon icon={faUser} className="icon" style={{ fontSize: "20" }} />
+                                </td>
+                                <td>
+                                    <Form.Control type="text" placeholder="Username"
+                                        value={username} onChange={({ target }) => setUsername(target.value)} />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <FontAwesomeIcon icon={faLock} className="icon" style={{ fontSize: "20" }} />
+                                </td>
+                                <td>
+                                    <Form.Control type="password" placeholder="Password"
+                                        value={senha} onChange={({ target }) => setPassword(target.value)} id="senha" />
+                                </td>
+                                <td width="10%">
+                                    <FontAwesomeIcon icon={visible} className="icon" style={{ fontSize: "20" }} onClick={mostrarSenha}/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <Button variant="light" className="btnLogin" type="submit">Login</Button>
+
+                    {erro ? <Alert sm="9" className="alertErro" variant='danger'>
+                        <FontAwesomeIcon icon={faExclamationTriangle} className="icon" style={{ marginRight: 5 }} />
+                        {erro}</Alert> :
+                        <></>}
+
+                    <p className="cadastro">Não possui uma conta? <Link to="/signup">Cadastre-se!</Link></p>
                 </Form>
             </div>
     )
