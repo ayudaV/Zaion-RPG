@@ -18,16 +18,16 @@ const Signup = ({ dispatch }) => {
     const [nomeJogador, setNomeJogador] = useState("");
     const [descricao, setDescricao] = useState("");
 
-    const [imgName, setImgName] = useState("");
+    const [nomeImagem, setNomeImagem] = useState("");
     const [imgSrc, setImgSrc] = useState(Logo);
-    const [imgFile, setImgFile] = useState();
+    const [arquivoImagem, setArquivoImagem] = useState();
 
     const [user, setUser] = useState();
     const [erro, setErro] = useState('');
     const [errors, setErrors] = useState({});
     const [visible, setVisibility] = useState(faEyeSlash);
     const [passVisibility, setPassVisibility] = useState("password");
-
+    const role = 'jogador';
 
     function mostrarSenha() {
         if (passVisibility === "password") {
@@ -38,26 +38,30 @@ const Signup = ({ dispatch }) => {
             setVisibility(faEyeSlash)
         }
     }
+
     const showPreview = e => {
         if (e.target.files && e.target.files[0]) {
             let imageFile = e.target.files[0];
             const reader = new FileReader();
             reader.onload = x => {
-                setImgFile(imageFile)
+                console.log(imageFile)
+                setArquivoImagem(imageFile)
                 setImgSrc(x.target.result)
             }
             reader.readAsDataURL(imageFile)
         }
         else {
-            setImgFile(null)
+            setArquivoImagem(null)
             setImgSrc(Logo)
         }
     }
+
     const handleSubmit = async e => {
         e.preventDefault();
         if (validate()) {
-            const userForm = { username, senha, nomeJogador, descricao, imgName };
-
+            const userForm = { username, senha, nomeJogador, nomeImagem, descricao, role, arquivoImagem };
+            console.log(userForm.arquivoImagem)
+            console.log(JSON.stringify(userForm))
             await fetch(`http://localhost:5000/home/signup`, {
                 method: "POST",
                 headers: {
@@ -91,7 +95,6 @@ const Signup = ({ dispatch }) => {
     }
 
     const validate = () => {
-        console.log("Oi")
         let temp = {};
         temp.username = username === "" ? false : true;
         temp.senha = senha === "" ? false : true;

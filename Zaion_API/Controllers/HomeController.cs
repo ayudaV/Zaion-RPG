@@ -1,13 +1,15 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Zaion_API.Models;
-using System;
 using Microsoft.AspNetCore.Authorization;
 using System.Linq;
 using Zaion_API.Data;
 using Zaion_API.Services;
 using Microsoft.AspNetCore.Http;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Zaion_API.Controllers
 {
@@ -15,10 +17,12 @@ namespace Zaion_API.Controllers
     public class HomeController : Controller
     {
         private readonly IRepository repository;
-        public HomeController(IRepository rep)
+        private readonly IWebHostEnvironment hostEnvironment;
+        public HomeController(IRepository rep, IWebHostEnvironment hostEnvironment)
         {
             // construtor
-            repository = rep;
+            this.repository = rep;
+            this.hostEnvironment = hostEnvironment;
         }
         [HttpPost]
         [Route("login")]
@@ -48,6 +52,7 @@ namespace Zaion_API.Controllers
             //verifica se existe aluno a ser excluído
             try
             {
+                usuario.NomeImagem = await SaveImage(usuario.ArquivoImagem);
                 if(repository.GetJogadoresByUsernameAsync(usuario.Username) != null)
                 return BadRequest("Nome de Usuario ja utilizado.");
                 repository.Add(usuario);
@@ -75,5 +80,18 @@ namespace Zaion_API.Controllers
         [Route("admin")]
         [Authorize(Roles = "admin")]
         public string Admin() => "Admin";
+
+        [NonAction]
+        public async Task<string> SaveImage(IFormFile imageFile)
+        {
+            string imageName = new String(Path.GetFileNameWithoutExtension(imageFile.FileName).Take(10).ToArray()).Replace(' ','-');
+            imageName = imageName + DateTime.Now.ToString("yymmssfff") + Path.GetExtension(imageFile.FileName);
+            var imagePath = Path.Combine(hostEnvironment.ContentRootPath, "Images", imageName);
+            using (var fileStream = new FileStream(imagePath, FileMode.Create))
+            {
+                await imageFile.CopyToAsync(fileStream);
+            }
+            return imageName;
+        }
     }
 }
