@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armas D&D</title>
+    <style>
+        table {
+            background-color: rgb(235, 235, 235);
+            border: 1px solid black;
+            font-family: 'Courier New', Courier, monospace;
+            border-collapse: collapse;
+            margin: 20px;
+        }
+
+        td,
+        th {
+            border: 1px solid black;
+
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Armas Modernas</th>
+                <th>Dano</th>
+                <th>Alcance</th>
+                <th>Munição por Pente</th>
+                <th>Tempo de Recarga</th>
+                <th>Peso</th>
+                <th>Rajada</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Revolver</td>
+                <td>2d6 perfurante</td>
+                <td>100 metros / 300 pés</td>
+                <td>8 disparos</td>
+                <td>ação de movimento ou ação de ataque</td>
+                <td>1 Kg</td>
+                <td>Não</td>
+            </tr>
+            <tr>
+                <td>Pistolas Automáticas e Semi 9 mm</td>
+                <td>2d6 perfurante</td>
+                <td>50 metros / 150 pés</td>
+                <td>15 disparos</td>
+                <td>ação de movimento ou ação de ataque</td>
+                <td>1 Kg</td>
+                <td>Sim</td>
+            </tr>
+            <tr>
+                <td>Escopetas (duas mãos / chumbo grosso)</td>
+                <td>2d12 perfurante</td>
+                <td>50 metros / 150 pés</td>
+                <td>8 disparos</td>
+                <td>1 turno</td>
+                <td>4,5 Kg</td>
+                <td>Não</td>
+            </tr>
+            <tr>
+                <td>Fuzis de Assalto (duas mãos)</td>
+                <td>2d8 perfurante</td>
+                <td>300 metros / 900 pés</td>
+                <td>30 disparos</td>
+                <td>ação de movimento ou ação de ataque</td>
+                <td>3,5 Kg</td>
+                <td>Sim</td>
+            </tr>
+            <tr>
+                <td>Fuzis de Batalha (duas mãos)</td>
+                <td>2d10 perfurante</td>
+                <td>600 metros / 1800 pés</td>
+                <td>20 disparos</td>
+                <td>ação de movimento ou ação de ataque</td>
+                <td>5 Kg</td>
+                <td>Sim</td>
+            </tr>
+            <tr>
+                <td>Metralhadoras (duas mãos)</td>
+                <td>2d8 perfurante</td>
+                <td>300 metros / 900 pés</td>
+                <td>100 disparos</td>
+                <td>2 turnos</td>
+                <td>7,5 Kg</td>
+                <td>Sim</td>
+            </tr>
+            <tr>
+                <td>Fuzis de Precisão (duas mãos)</td>
+                <td>2d12 perfurante</td>
+                <td>1000 metros / 3000 pés</td>
+                <td>10 disparos</td>
+                <td>ação de movimento ou ação de ataque</td>
+                <td>10 Kg</td>
+                <td>Não</td>
+            </tr>
+            <tr>
+                <td>Lança Mísseis (duas mãos)</td>
+                <td>6d6 fogo</td>
+                <td>300 metros / 900 pés</td>
+                <td>1 disparo</td>
+                <td>1 turno</td>
+                <td>10 kg</td>
+                <td>Não</td>
+            </tr>
+            <tr>
+                <td>Lança Chamas</td>
+                <td>3d6 fogo</td>
+                <td>9 metros / 30 pés</td>
+                <td>10 turnos</td>
+                <td>30 minutos</td>
+                <td>25 Kg</td>
+                <td>Não</td>
+            </tr>
+        </tbody>
+    </table>
+    <table>
+        <thead>
+            <tr>
+                <th>Explosivos Modernos</th>
+                <th>Dano</th>
+                <th>Alcance de Arremesso</th>
+                <th>Raio de Explosão</th>
+                <th>Efeito e Teste de Resistência (TR)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>C4 (tijolo)</td>
+                <td>1d8 concussão (max. 10d8)</td>
+                <td>18 metros / 54 pés</td>
+                <td>6 metros / 18 pés</td>
+                <td>TR de Constituição CD 15 (sucesso metade do dano)</td>
+            </tr>
+            <tr>
+                <td>Granada de Mão</td>
+                <td>3d6 concussão</td>
+                <td>18 metros / 54 pés</td>
+                <td>3 metros / 9 pés</td>
+                <td>TR de Constituição CD 15 (sucesso metade do dano)</td>
+            </tr>
+            <tr>
+                <td>Granada de Fragmentação</td>
+                <td>5d6 perfurante</td>
+                <td>18 metros / 54 pés</td>
+                <td>3 metros / 9 pés</td>
+                <td>TR de Destreza CD 15 (sucesso metade do dano)</td>
+            </tr>
+            <tr>
+                <td>Granada de Atordoamento</td>
+                <td>1d4 concussão</td>
+                <td>18 metros / 54 pés</td>
+                <td>3 metros / 9 pés</td>
+                <td>TR de Constituição CD 12 (falha paralisado 2 turnos )</td>
+            </tr>
+            <tr>
+                <td>Granada de Luz</td>
+                <td>1d4 fogo (dano nos olhos)</td>
+                <td>18 metros / 54 pés</td>
+                <td>6 metros / 18 pés</td>
+                <td>TR de Destreza CD 15 (falha cego 2 turnos)</td>
+            </tr>
+            <tr>
+                <td>Granada de Fumaça</td>
+                <td></td>
+                <td>18 metros / 54 pés</td>
+                <td>6 metros / 18 pés</td>
+                <td>Área de Escuridão (duração da área de fumaça 10 turnos)</td>
+            </tr>
+        </tbody>
+    </table>
+    <table cellpadding="0" cellspacing="0" style="width: 100%px;">
+        <colgroup>
+            <col width="77*">
+            <col width="25*">
+            <col width="23*">
+            <col width="34*">
+            <col width="32*">
+            <col width="21*">
+            <col width="45*">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>Armas marciais</th>
+                <th>Preço</th>
+                <th>Dano</th>
+                <th>Crítico</th>
+                <th>Distância</th>
+                <th>Peso</th>
+                <th>Tipo</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr valign="top">
+                <td colspan="7">Corpo-a-Corpo - Leves</td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Cestus</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">5
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">+1</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">0,5Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Esmagamento</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Escudo
+                            Leve</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">5
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1d4</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">x2</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">3Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Esmagamento</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Machadinha</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">6
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1d6</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">x3</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">3m</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">2Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Corte</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Martelo</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1d6</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">x2</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">6m</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Esmagamento</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;"><i><b>Corpo-a-Corpo
+                                    - Uma mão</b></i></span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western">
+                        <span style="font-family: inherit; font-size: xx-small;"><br>
+
+                        </span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western">
+                        <span style="font-family: inherit; font-size: xx-small;"><br>
+
+                        </span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western">
+                        <span style="font-family: inherit; font-size: xx-small;"><br>
+
+                        </span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western">
+                        <span style="font-family: inherit; font-size: xx-small;"><br>
+
+                        </span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western">
+                        <span style="font-family: inherit; font-size: xx-small;"><br>
+
+                        </span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western">
+                        <span style="font-family: inherit; font-size: xx-small;"><br>
+
+                        </span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Cimitarra</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">15
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1d6</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">18-20</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">2Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Corte</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Escudo
+                            Pesado</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">15
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1d6</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">x2</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">7Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Esmagamento</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Espada
+                            Longa</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">15
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1d8</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">19-20</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">2Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Corte</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Florete</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">20
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1d6</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">18-20</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Perfuração</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Gládio</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">15
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1d6</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">19-20/x3</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">2Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Perfuração</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Machado
+                            de Batalha</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">10
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1d8</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">x3</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">3Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Corte</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Maça-Estrela</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">15
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">2d4</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">x2</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">3Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Esm.
+                            e Perf.</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Mangual</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">8
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1d8</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">x2</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">2,5Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Esmagamento</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Martelo
+                            de Guerra</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">12
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1d8</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">x3</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">2,5Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Esmagamento</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Picareta</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">8
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1d6</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">x4</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">3Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Perfuração</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Tridente</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">15
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1d8</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">x2</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">2Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Perfuração</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;"><i><b>Corpo-a-Corpo
+                                    - Duas Mãos</b></i></span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western">
+                        <span style="font-family: inherit; font-size: xx-small;"><br>
+
+                        </span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western">
+                        <span style="font-family: inherit; font-size: xx-small;"><br>
+
+                        </span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western">
+                        <span style="font-family: inherit; font-size: xx-small;"><br>
+
+                        </span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western">
+                        <span style="font-family: inherit; font-size: xx-small;"><br>
+
+                        </span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western">
+                        <span style="font-family: inherit; font-size: xx-small;"><br>
+
+                        </span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western">
+                        <span style="font-family: inherit; font-size: xx-small;"><br>
+
+                        </span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Alabarda</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">10
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1d10</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">x3</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">6Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Corte</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Alfange</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">75
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">2d4</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">18-20</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">4Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Corte</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Cajado
+                            de batalha</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">10
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1d8/1d8</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">x2</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">4Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Esmagamento</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Espada
+                            grande</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">50
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">2d6</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">19-20</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">4Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Corte</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Foice</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">18
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">2d4</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">x4</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">5Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Corte</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Lança
+                            montada</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">10
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1d8</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">x3</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">5Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Perfuração</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Machado
+                            Grande</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">20
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1d12</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">x3</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">6Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Corte</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Mangual
+                            Pesado</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">15
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1d12</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">x3</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">5Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Esmagamento</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Marreta</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">20
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">3d4</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">x2</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">8Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Esmagamento</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;"><i><b>Ataque
+                                    à Distância</b></i></span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western">
+                        <span style="font-family: inherit; font-size: xx-small;"><br>
+
+                        </span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western">
+                        <span style="font-family: inherit; font-size: xx-small;"><br>
+
+                        </span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western">
+                        <span style="font-family: inherit; font-size: xx-small;"><br>
+
+                        </span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western">
+                        <span style="font-family: inherit; font-size: xx-small;"><br>
+
+                        </span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western">
+                        <span style="font-family: inherit; font-size: xx-small;"><br>
+
+                        </span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western">
+                        <span style="font-family: inherit; font-size: xx-small;"><br>
+
+                        </span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Arco
+                            composto</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">75
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1d6</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">x3</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">18m</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Perfuração</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---Flechas(20)</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1,5Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Arco
+                            longo</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">100
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1d8</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">x3</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">24m</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1,5Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Perfuração</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="14"
+                    style="border-bottom: 1.00pt solid #000000; border-left: none; border-right: none; border-top: none; padding: 0cm;"
+                    width="30%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---Flechas(20)</span>
+                    </div>
+                </td>
+                <td style="border-bottom: 1.00pt solid #000000; border-left: none; border-right: none; border-top: none; padding: 0cm;"
+                    width="10%">
+                    <div class="western" style="margin-left: 0.39cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border-bottom: 1.00pt solid #000000; border-left: none; border-right: none; border-top: none; padding: 0cm;"
+                    width="9%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border-bottom: 1.00pt solid #000000; border-left: none; border-right: none; border-top: none; padding: 0cm;"
+                    width="13%">
+                    <div class="western" style="margin-left: 0.64cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border-bottom: 1.00pt solid #000000; border-left: none; border-right: none; border-top: none; padding: 0cm;"
+                    width="12%">
+                    <div class="western" style="margin-left: 0.35cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border-bottom: 1.00pt solid #000000; border-left: none; border-right: none; border-top: none; padding: 0cm;"
+                    width="8%">
+                    <div class="western" style="margin-left: 0.25cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1,5Kg</span>
+                    </div>
+                </td>
+                <td style="border-bottom: 1.00pt solid #000000; border-left: none; border-right: none; border-top: none; padding: 0cm;"
+                    width="17%">
+                    <div class="western" style="margin-left: 0.32cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border-bottom: none; border-left: none; border-right: none; padding: 0cm;"
+                    width="29%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Besta
+                            pesada</span>
+                    </div>
+                </td>
+                <td style="border-bottom: none; border-left: none; border-right: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.6cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">50
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border-bottom: none; border-left: none; border-right: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.46cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1d12</span>
+                    </div>
+                </td>
+                <td style="border-bottom: none; border-left: none; border-right: none; padding: 0cm;" width="14%">
+                    <div class="western" style="margin-left: 0.71cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">19-20</span>
+                    </div>
+                </td>
+                <td style="border-bottom: none; border-left: none; border-right: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.21cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">27m</span>
+                    </div>
+                </td>
+                <td style="border-bottom: none; border-left: none; border-right: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.11cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">4Kg</span>
+                    </div>
+                </td>
+                <td style="border-bottom: none; border-left: none; border-right: none; padding: 0cm;" width="16%">
+                    <div class="western" style="margin-left: 0.14cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Perfuração</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="15" style="border: none; padding: 0cm;" width="29%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---Virotes(10)</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="10%">
+                    <div class="western" style="margin-left: 0.6cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="9%">
+                    <div class="western" style="margin-left: 0.46cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="14%">
+                    <div class="western" style="margin-left: 0.71cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="12%">
+                    <div class="western" style="margin-left: 0.21cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="8%">
+                    <div class="western" style="margin-left: 0.11cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">0,5Kg</span>
+                    </div>
+                </td>
+                <td style="border: none; padding: 0cm;" width="16%">
+                    <div class="western" style="margin-left: 0.14cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">---</span>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td height="14"
+                    style="border-bottom: 1.00pt solid #000000; border-left: none; border-right: none; border-top: none; padding: 0cm;"
+                    width="29%">
+                    <div class="western" style="margin-left: 0.18cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Pilum</span>
+                    </div>
+                </td>
+                <td style="border-bottom: 1.00pt solid #000000; border-left: none; border-right: none; border-top: none; padding: 0cm;"
+                    width="10%">
+                    <div class="western" style="margin-left: 0.6cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">5
+                            PO</span>
+                    </div>
+                </td>
+                <td style="border-bottom: 1.00pt solid #000000; border-left: none; border-right: none; border-top: none; padding: 0cm;"
+                    width="9%">
+                    <div class="western" style="margin-left: 0.46cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1d6</span>
+                    </div>
+                </td>
+                <td style="border-bottom: 1.00pt solid #000000; border-left: none; border-right: none; border-top: none; padding: 0cm;"
+                    width="14%">
+                    <div class="western" style="margin-left: 0.71cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">x3</span>
+                    </div>
+                </td>
+                <td style="border-bottom: 1.00pt solid #000000; border-left: none; border-right: none; border-top: none; padding: 0cm;"
+                    width="12%">
+                    <div class="western" style="margin-left: 0.21cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">6m</span>
+                    </div>
+                </td>
+                <td style="border-bottom: 1.00pt solid #000000; border-left: none; border-right: none; border-top: none; padding: 0cm;"
+                    width="8%">
+                    <div class="western" style="margin-left: 0.11cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">1,5Kg</span>
+                    </div>
+                </td>
+                <td style="border-bottom: 1.00pt solid #000000; border-left: none; border-right: none; border-top: none; padding: 0cm;"
+                    width="16%">
+                    <div class="western" style="margin-left: 0.14cm;">
+                        <span style="font-family: inherit; font-size: xx-small;">Perfuração</span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

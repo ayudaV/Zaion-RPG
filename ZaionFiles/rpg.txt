@@ -1,0 +1,17 @@
+Barra de vida (Constituição)
+Barra de adrenalina (Constituição + Sabedoria) 
+Barra de Sanadidade (Sabedoria * 2)
+
+Força
+Destreza
+Constituição
+Inteligência
+Sabedoria
+Carisma
+
+Força >= ClassArmadura
+Dado de dano (arma) 
+Soco = d4 + bonus de força
+Pericias >= Teste de Resistencia 
+(Teste de resistencia se tornou pericias de defesa)
+-10.354585, -151.895871
